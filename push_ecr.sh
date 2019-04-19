@@ -6,5 +6,5 @@ for repository in "$@"
 do
     container=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$repository:latest
     echo "container: $container"
-    docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$repository:latest
+    docker push $container
 done
