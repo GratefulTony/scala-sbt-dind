@@ -49,4 +49,6 @@ RUN curl -sSL https://get.docker.com/ | sh
 # Define working directory
 WORKDIR /root
 
+CMD service docker start && /bin/bash
+
 
