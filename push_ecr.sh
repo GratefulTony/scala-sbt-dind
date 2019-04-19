@@ -6,5 +6,14 @@ for repository in "$@"
 do
     container=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$repository:latest
     echo "container: $container"
+
+    # hack to idempotently create the repos.
+    aws ecr describe-repositories --repository-names $container 2>&1 > /dev/null
+    status=$?
+    if [[ ! "${status}" -eq 0 ]]; then
+        aws ecr create-repository --repository-name $container
+    fi
+    
+    # push it out.
     docker push $container
 done
