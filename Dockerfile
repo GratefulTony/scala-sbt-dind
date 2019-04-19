@@ -49,6 +49,7 @@ RUN curl -sSL https://get.docker.com/ | sh
 # Define working directory
 WORKDIR /root
 
+ADD push_ecr.sh /root
 CMD service docker start && /bin/bash
 
 
