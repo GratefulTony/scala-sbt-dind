@@ -15,5 +15,6 @@ do
     fi
     
     # push it out.
+    docker tag $repository:latest $container
     docker push $container
 done
