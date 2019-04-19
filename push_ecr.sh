@@ -8,10 +8,10 @@ do
     echo "container: $container"
 
     # hack to idempotently create the repos.
-    aws ecr describe-repositories --repository-names $container 2>&1 > /dev/null
+    aws ecr describe-repositories --repository-names $repository 2>&1 > /dev/null
     status=$?
     if [[ ! "${status}" -eq 0 ]]; then
-        aws ecr create-repository --repository-name $container
+        aws ecr create-repository --repository-name $repository
     fi
     
     # push it out.
