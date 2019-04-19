@@ -40,7 +40,8 @@ RUN apt-get update -qq && apt-get install -qqy \
     ca-certificates \
     curl \
     lxc \
-    iptables
+    iptables \
+    awscli
     
 # Install Docker from Docker Inc. repositories.
 RUN curl -sSL https://get.docker.com/ | sh
